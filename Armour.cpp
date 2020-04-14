@@ -2,33 +2,37 @@
 
 //------------------------------------------------------------------------------
 Armour::Armour()
-    :Item() // There should be something simliar in Consumable.cpp
+    :Item("Armour", false),
+    material(" "),
+    modifier(" "),
+    element(" ") // There should be something simliar in Consumable.cpp
 {
+    //name = " ";
     durability = 0.0;
     defense = 0.0;
-    material = " ";
-    modifier = " ";
+   //material = " ";
+   // modifier = " ";
     modifierLevel = 1;
-    element = " ";
+   // element = " ";
 }
 
 //------------------------------------------------------------------------------
 void Armour::display(std::ostream& outs) const{
     // Implement this function
-    Item::display(outs);
+    //Item::display(outs);
 
      outs << std::left  << "  Nme"  << ": "
-          << std::right << getName() << "\n"
+          << getName() << "\n"
           << std::left  << "  Dur" << ": "
-          << std::right << getDurability() << "\n"
+          << getDurability() << "\n"
           << std::left  << "  Def" << ": "
-          << std::right << getDefense() << "\n"
+          << getDefense() << "\n"
           << std::left  << "  Mtl" << ": "
-          << std::right << getMaterial() << "\n"
-          << std::right << "  Mdr" << "\n"
-          << std::right << getModifier() << "(" << getModifierLevel() <<  ")" << "\n"
-          << std::right << "  Emt"  << "\n"
-          << std::right << getElement() << "\n";
+          << getMaterial() << "\n"
+          << std::left << "  Mdr" << ": "
+          << getModifier() << "(Lvl " << getModifierLevel() << ")" << "\n"
+          << std::left << "  Emt"  << ": "
+          << getElement() << "\n";
           
     
 
@@ -38,7 +42,9 @@ void Armour::display(std::ostream& outs) const{
 //------------------------------------------------------------------------------
 void Armour::read(std::istream& ins){
     // Implement this function
+    ins >> this->name;
     ins >> this->durability;
+    //ins >> this->name;
     ins >> this->defense;
     ins >> this->material;
     ins >> this->modifier;
