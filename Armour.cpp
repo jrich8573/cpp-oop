@@ -8,11 +8,11 @@ Armour::Armour()
     element(" ") // There should be something simliar in Consumable.cpp
 {
     //name = " ";
-    durability = 0.0;
-    defense = 0.0;
+    durability = 0;
+    defense = 0;
    //material = " ";
    // modifier = " ";
-    modifierLevel = 1;
+    modifierLevel = 0;
    // element = " ";
 }
 
@@ -30,7 +30,7 @@ void Armour::display(std::ostream& outs) const{
           << std::left  << "  Mtl" << ": "
           << getMaterial() << "\n"
           << std::left << "  Mdr" << ": "
-          << getModifier() << "(Lvl " << getModifierLevel() << ")" << "\n"
+          << getModifier() << " (Lvl " << getModifierLevel() << ")" << "\n"
           << std::left << "  Emt"  << ": "
           << getElement() << "\n";
           
@@ -43,10 +43,10 @@ void Armour::display(std::ostream& outs) const{
 void Armour::read(std::istream& ins){
     // Implement this function
     ins >> this->name;
+    ins >> this->material;
     ins >> this->durability;
     //ins >> this->name;
     ins >> this->defense;
-    ins >> this->material;
     ins >> this->modifier;
     ins >> this->modifierLevel;
     ins >> this->element;
